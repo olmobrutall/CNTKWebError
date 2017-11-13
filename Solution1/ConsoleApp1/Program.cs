@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CNTK;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,9 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            var device = DeviceDescriptor.GPUDevice(0);
+            Console.WriteLine($"======== running LogisticRegression.TrainAndEvaluate using {device.Type} ========");
+            LogisticRegression.TrainAndEvaluate(device);
         }
     }
 }
